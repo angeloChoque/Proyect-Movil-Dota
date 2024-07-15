@@ -1,55 +1,38 @@
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Button,
-  TouchableHighlight,
-  TouchableOpacity,
-} from "react-native";
-import icon from "../../assets/images/icon.png";
+import Home from "@/components/home/Home";
 import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { Image, Text, View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import img from "../../assets/images/Dota2.png";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-//hay propiedas que son para algunos moviles como ios o android
-//punto negro en la documentacion es de ios y punto verde de android
-
-// LA MEJOR FORMA DE PERSONALIZAR ES USANDO PRESSABLE , YA QUE ELIMINARAN LOS OTROS
 export default function HomeScreen() {
+
+  const insets = useSafeAreaInsets();
+
+
+
   return (
     <>
-      <View style={styles.container}>
-        <TouchableHighlight //boton personalizable
-          onPress={() => alert("presiona aqui")}
-          style={{ backgroundColor: "red" }}
+      <SafeAreaProvider>
+        <View
+          style={{
+            backgroundColor: "black",
+            paddingHorizontal: 10,
+            paddingTop: insets.top
+          }}
         >
-          <Text>asadaasd</Text>
-        </TouchableHighlight>
-        <TouchableOpacity //boton personalizable 2
-          onPress={() => alert("presiona aqui")}
-          style={{ backgroundColor: "red" }}
-        >
-          <Text>asada</Text>
-        </TouchableOpacity>
-        <StatusBar
-          style="light" // es para que la barra de arriba este de color blanco o negro
-        />
-        <Image
-          source={icon}
-          blurRadius={1} // es para el enfoque y desenfoque de la imagen
-          style={{ width: 100, height: 100 }}
-        />
-        <Text style={{ color: "white" }}>hola </Text>
-        <Button title="pulsa aqui" onPress={() => alert("presiona aqui")} />
-      </View>
+          <StatusBar style="light" />
+          <View style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
+            <Image
+              source={img}
+              style={{ width: 70, height: 70, marginLeft:5}}
+            />
+            <Text style={{color:"white", marginTop:5, fontSize:25, marginRight:10}}> Heroes </Text>
+          </View>
+          <Home />
+        </View>
+      </SafeAreaProvider>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "black",
-  },
-});
