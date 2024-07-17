@@ -31,9 +31,9 @@ export default function TabLayout() {
         }}
       />
             <Tabs.Screen
-        name="items"
+        name="Teams"
         options={{
-          title: "Items",
+          title: "Teams",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
               name={focused ? "albums" : "albums-outline"}

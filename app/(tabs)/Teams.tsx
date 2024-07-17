@@ -1,12 +1,12 @@
-import Home from "@/components/home/Home";
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import img from "../../assets/images/Dota2.png";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
+import img from "../../assets/images/Dota2.png";
+import Teams from "@/components/teams/Teams";
 
-export default function HomeScreen() {
+export default function Items() {
   const insets = useSafeAreaInsets();
 
   return (
@@ -22,7 +22,6 @@ export default function HomeScreen() {
           <StatusBar style="light" />
           <View
             style={{
-              display: "flex",
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "space-between",
@@ -34,23 +33,24 @@ export default function HomeScreen() {
                 width: 70,
                 height: 70,
                 marginLeft: 5,
-                marginVertical: 5,
+                marginTop: 5,
               }}
             />
             <Text
               style={{
                 color: "white",
-                marginTop: 5,
+                marginTop: 8,
                 fontSize: 25,
                 marginRight: 10,
               }}
             >
-              Heroes
+              Teams
             </Text>
           </View>
-          <Home />
+          <Teams/>
         </View>
       </SafeAreaProvider>
     </>
   );
 }
+

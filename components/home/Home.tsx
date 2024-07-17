@@ -55,67 +55,72 @@ export default function Home() {
 
   return (
     <>
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={{ color: "white", fontSize: 20 }}>
-          Total Heroes:<Text>{" "}{info.length}</Text>
-        </Text>
-        {info.map((hero) => {
-          return (
-            <View
-              key={hero.id}
-              style={[
-                styles.heroContainer,
-                { backgroundColor: getBackgroundColor(hero.primary_attr) },
-              ]}
-            >
-              <Text style={styles.nameHero}>{hero.localized_name}</Text>
-              <View style={styles.containerImg}>
-                <Image
-                  source={{ uri: `${IMG_URL}${hero.img}` }}
-                  style={styles.heroImage}
-                />
-                <View style={styles.circleContainer}>
-                  <View style={styles.boxHability}>
-                    <View style={[styles.circle, { backgroundColor: "red" }]} />
-                    <Text style={styles.habilityText}>
-                      {hero.base_str} + {hero.str_gain}
-                    </Text>
-                  </View>
-                  <View style={styles.boxHability}>
-                    <View
-                      style={[styles.circle, { backgroundColor: "green" }]}
-                    />
-                    <Text style={styles.habilityText}>
-                      {hero.base_agi} + {hero.agi_gain}
-                    </Text>
-                  </View>
-                  <View style={styles.boxHability}>
-                    <View
-                      style={[styles.circle, { backgroundColor: "blue" }]}
-                    />
-                    <Text style={styles.habilityText}>
-                      {hero.base_int} + {hero.int_gain}{" "}
-                    </Text>
+      <View style={{ marginBottom:150}} >
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          <Text style={{ color: "white", fontSize: 20, marginBottom: 10 }}>
+            Total Heroes:<Text> {info.length}</Text>
+          </Text>
+          {info.map((hero) => {
+            return (
+              <View
+                key={hero.id}
+                style={[
+                  styles.heroContainer,
+                  { backgroundColor: getBackgroundColor(hero.primary_attr) },
+                ]}
+              >
+                <Text style={styles.nameHero}>{hero.localized_name}</Text>
+                <View style={styles.containerImg}>
+                  <Image
+                    source={{ uri: `${IMG_URL}${hero.img}` }}
+                    style={styles.heroImage}
+                  />
+                  <View style={styles.circleContainer}>
+                    <View style={styles.boxHability}>
+                      <View
+                        style={[styles.circle, { backgroundColor: "red" }]}
+                      />
+                      <Text style={styles.habilityText}>
+                        {hero.base_str} + {hero.str_gain}
+                      </Text>
+                    </View>
+                    <View style={styles.boxHability}>
+                      <View
+                        style={[styles.circle, { backgroundColor: "green" }]}
+                      />
+                      <Text style={styles.habilityText}>
+                        {hero.base_agi} + {hero.agi_gain}
+                      </Text>
+                    </View>
+                    <View style={styles.boxHability}>
+                      <View
+                        style={[styles.circle, { backgroundColor: "blue" }]}
+                      />
+                      <Text style={styles.habilityText}>
+                        {hero.base_int} + {hero.int_gain}{" "}
+                      </Text>
+                    </View>
                   </View>
                 </View>
+                <View style={styles.textContainer}>
+                  <Text style={styles.heroText}>
+                    <Text style={styles.boldText}>Atribute:</Text>{" "}
+                    {hero.primary_attr}
+                  </Text>
+                  <Text style={styles.heroText}>
+                    <Text style={styles.boldText}>Atack:</Text>{" "}
+                    {hero.attack_type}
+                  </Text>
+                  <Text style={styles.heroText}>
+                    <Text style={styles.boldText}>Roles:</Text>{" "}
+                    {hero.roles.join(", ")}
+                  </Text>
+                </View>
               </View>
-              <View style={styles.textContainer}>
-                <Text style={styles.heroText}>
-                  <Text style={styles.boldText}>Atribute:</Text>{" "}
-                  {hero.primary_attr}
-                </Text>
-                <Text style={styles.heroText}>
-                  <Text style={styles.boldText}>Atack:</Text> {hero.attack_type}
-                </Text>
-                <Text style={styles.heroText}>
-                  <Text style={styles.boldText}>Roles:</Text>{" "}
-                  {hero.roles.join(", ")}
-                </Text>
-              </View>
-            </View>
-          );
-        })}
-      </ScrollView>
+            );
+          })}
+        </ScrollView>
+      </View>
     </>
   );
 }
@@ -164,7 +169,7 @@ const styles = StyleSheet.create({
     height: 12,
     borderRadius: 10,
     marginBottom: 6,
-    marginTop:3,
+    marginTop: 3,
     marginLeft: 10,
   },
   boxHability: {
