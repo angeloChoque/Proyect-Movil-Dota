@@ -39,7 +39,7 @@ export default function Teams() {
               <Text style={styles.textTeam}>{team.name}</Text>
               <View>
                 <Text style={styles.textStats}>Win: {team.wins}</Text>
-                <Text style={styles.textStats}>lose: {team.losses}</Text>
+                <Text style={styles.textStats}>Lose: {team.losses}</Text>
               </View>
             </View>
           </View>
